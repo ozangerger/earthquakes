@@ -14,13 +14,13 @@ def is_near_istanbul(city_geom):
 
 near_istanbul = cities[cities['geometry'].apply(is_near_istanbul)]
 
-df = pd.read_csv("data/son_depremler.csv")
+df = pd.read_csv("data/marmara_earthquakes.csv")
 
 plt.figure(figsize=(10, 8))
 ax = plt.axes(projection=ccrs.PlateCarree())
 ax_offset = 0.8
-ax.set_extent([df['Boylam(E)'].min() - ax_offset, df['Boylam(E)'].max() + ax_offset,
-               df['Enlem(N)'].min() - ax_offset, df['Enlem(N)'].max() + ax_offset])
+ax.set_extent([df['Longitude'].min() - ax_offset, df['Longitude'].max() + ax_offset,
+               df['Latitude'].min() - ax_offset, df['Latitude'].max() + ax_offset])
 
 ax.add_feature(cfeature.LAND)
 ax.add_feature(cfeature.OCEAN)
@@ -34,13 +34,13 @@ for idx, row in near_istanbul.iterrows():
     ax.text(city_point.x + 0.1, city_point.y, row['NAME'], fontsize=8, transform=ccrs.PlateCarree())
 
 scatter = ax.scatter(
-    df['Boylam(E)'], df['Enlem(N)'],
-    c=df['ML'], s=df['ML'] * 10,
+    df['Longitude'], df['Latitude'],
+    c=df['Magnitude'], s=df['Magnitude'] * 10,
     cmap='Reds', edgecolor='black',
     transform=ccrs.PlateCarree()
 )
 
-plt.scatter(df['Boylam(E)'], df['Enlem(N)'], c=df['ML'], s=df['ML']*10, cmap='Reds', edgecolor='k')
+plt.scatter(df['Longitude'], df['Latitude'], c=df['Magnitude'], s=df['Magnitude']*10, cmap='Reds', edgecolor='k')
 plt.title("Earthquake Locations (ML shown by color and size)")
 cbar = plt.colorbar(scatter, ax=ax, orientation='horizontal', shrink=0.6, pad=0.06)
 cbar.set_label('Magnitude (ML)')
