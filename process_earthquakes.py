@@ -44,4 +44,4 @@ plt.scatter(df['Boylam(E)'], df['Enlem(N)'], c=df['ML'], s=df['ML']*10, cmap='Re
 plt.title("Earthquake Locations (ML shown by color and size)")
 cbar = plt.colorbar(scatter, ax=ax, orientation='horizontal', shrink=0.6, pad=0.06)
 cbar.set_label('Magnitude (ML)')
-plt.show()
+plt.savefig("last_earthquakes_istanbul.png")
