@@ -39,13 +39,23 @@ df = df[df['Magnitude'] >= min_magnitude]
 
 scatter = ax.scatter(
     df['Longitude'], df['Latitude'],
-    c=df['Magnitude'], s=df['Magnitude'] * 10,
+    c=df['Magnitude'], s=df['Magnitude'] * 3,
     cmap='Reds', edgecolor='black',
     transform=ccrs.PlateCarree()
 )
 
-plt.scatter(df['Longitude'], df['Latitude'], c=df['Magnitude'], s=df['Magnitude']*10, cmap='Reds', edgecolor='k')
-plt.title("Earthquake Locations (ML > " + str(min_magnitude) + ")")
+faults = gpd.read_file("data/tekirdag_segmenti.geojson")
+
+geoJsonFiles = [
+    "data/tekirdag_segmenti.geojson",
+    "data/orta_marmara_cukuru.geojson",
+    "data/kumburgaz_segmenti.geojson"
+]
+
+faults = gpd.GeoDataFrame(pd.concat([gpd.read_file(f) for f in geoJsonFiles], ignore_index=True))
+faults.plot(ax=ax, color='red', linewidth=2, transform=ccrs.PlateCarree())
+
+plt.title(f"Earthquake Locations (ML > {min_magnitude})")
 cbar = plt.colorbar(scatter, ax=ax, orientation='horizontal', shrink=0.6, pad=0.06)
 cbar.set_label('Magnitude (ML)')
 plt.savefig("last_earthquakes_istanbul.png", bbox_inches='tight', pad_inches=0.1)
