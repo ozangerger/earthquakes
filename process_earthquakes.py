@@ -33,6 +33,10 @@ for idx, row in near_istanbul.iterrows():
     ax.plot(city_point.x, city_point.y, marker='o', color='blue', markersize=5, transform=ccrs.PlateCarree())
     ax.text(city_point.x + 0.1, city_point.y, row['NAME'], fontsize=8, transform=ccrs.PlateCarree())
 
+# filter data according to their magnitude
+min_magnitude = 3.0
+df = df[df['Magnitude'] >= min_magnitude]
+
 scatter = ax.scatter(
     df['Longitude'], df['Latitude'],
     c=df['Magnitude'], s=df['Magnitude'] * 10,
@@ -41,7 +45,7 @@ scatter = ax.scatter(
 )
 
 plt.scatter(df['Longitude'], df['Latitude'], c=df['Magnitude'], s=df['Magnitude']*10, cmap='Reds', edgecolor='k')
-plt.title("Earthquake Locations (ML shown by color and size)")
+plt.title("Earthquake Locations (ML > " + str(min_magnitude) + ")")
 cbar = plt.colorbar(scatter, ax=ax, orientation='horizontal', shrink=0.6, pad=0.06)
 cbar.set_label('Magnitude (ML)')
 plt.savefig("last_earthquakes_istanbul.png", bbox_inches='tight', pad_inches=0.1)
