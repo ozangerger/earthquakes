@@ -1,6 +1,7 @@
 ## 🌍 Earthquakes in Istanbul
 
 ![Marmara'daki son depremler](last_earthquakes_istanbul.png)
+![Marmara'daki son depremler - detay](last_earthquakes_istanbul_zoomed.png)
 
 A lightweight tool to visualize recent earthquakes and fault lines in Istanbul on the map, using data from the Kandilli Observatory and Earthquake Research Institute (KOERI). 
 Designed to highlight seismic activity since April 23, 2025, with optional scraping from the live KOERI server.

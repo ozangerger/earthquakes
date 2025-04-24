@@ -30,10 +30,11 @@ def plotData(df, near_istanbul=None, min_magnitude=3.0, ax_offset = 0.8, fileNam
     ax.add_feature(cfeature.COASTLINE)
     ax.gridlines(draw_labels=True)
 
-    for idx, row in near_istanbul.iterrows():
-        city_point = row['geometry']
-        ax.plot(city_point.x, city_point.y, marker='o', color='blue', markersize=5, transform=ccrs.PlateCarree())
-        ax.text(city_point.x + 0.1, city_point.y, row['NAME'], fontsize=8, transform=ccrs.PlateCarree())
+    if(near_istanbul is not None):
+        for idx, row in near_istanbul.iterrows():
+            city_point = row['geometry']
+            ax.plot(city_point.x, city_point.y, marker='o', color='blue', markersize=5, transform=ccrs.PlateCarree())
+            ax.text(city_point.x + 0.1, city_point.y, row['NAME'], fontsize=8, transform=ccrs.PlateCarree())
 
     df = df[df['Magnitude'] >= min_magnitude]
 
@@ -69,4 +70,4 @@ if __name__ == "__main__":
     df = pd.read_csv("data/marmara_earthquakes.csv")
 
     plotData(df, min_magnitude=3.0, near_istanbul=near_istanbul)
-    plotData(df, min_magnitude=2.0, near_istanbul=near_istanbul, ax_offset=0.1, fileName="last_earthquakes_istanbul_zoomed.png")
+    plotData(df, min_magnitude=2.0, near_istanbul=None, ax_offset=0.1, fileName="last_earthquakes_istanbul_zoomed.png")
