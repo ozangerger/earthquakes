@@ -1,15 +1,45 @@
-Developed to plot earthquakes in Istanbul(particularly starting with 23.04.2025) using offline data manually fetched from koeri.boun.edu.tr to prevent frequent polling from server. Now, there is an option to scrape earthquakes from the server on demand.
+## 🌍 Earthquakes in Istanbul
 
-I suggest that you manage python environment using micromamba, A lightweight environment manager
-After creating and activating the environment, use requirements.txt to install required packages.
+A lightweight tool to visualize recent earthquakes in Istanbul, using data from the Kandilli Observatory and Earthquake Research Institute (KOERI). 
+Designed to highlight seismic activity since April 23, 2025, with optional scraping from the live KOERI server.
 
-Steps to reproduce:  
+⚙️ Features
+
+- 📅 Earthquake list in Marmara region, starting from 23.04.2025
+- 🌐 Live scraping from KOERI server (on demand)
+- 🗺️ Map-based visualization using Cartopy
+- 🔐 Uses local CSV to prevent unnecessary polling
+
+🚀 **Getting Started**
+
+Manage your environment with Micromamba – a fast and minimal environment manager.
+
+🛠️ **Setup Instructions**
   
-- conda create --name earthquake_env python=3.12  
-- conda activate earthquake_env  
-- pip install -r requirements.txt
-- (optional) python scrape_recent_earthquakes.py to update list of earthquakes
-- python process_earthquakes.py
-  
-**Latest map of earthquakes in istanbul:**  
-![Description of Image](last_earthquakes_istanbul.png)
+1. micromamba create --name earthquake_env python=3.12
+2. micromamba activate earthquake_env
+3. pip install -r requirements.txt  
+
+▶️ **Run the App**
+
+**Optional: update local earthquake list**  
+> python scrape_recent_earthquakes.py  
+
+**Process and visualize earthquakes**  
+> python process_earthquakes.py  
+
+🧱 **Next Steps**
+
+- 🔗 Integrate fault line maps (e.g., MTA / USGS datasets)
+- 💾 Improve CSV update mechanism
+
+
+
+## 🌐 Turkce aciklama
+# 🌍Istanbul'daki Son Depremler Haritası
+
+Kandilli Rasathanesi veri tabanından alınan ve 23 Nisan 2025 sonrası İstanbul’daki depremleri gösteren interaktif bir harita uygulamasıdır. Veri çevrimdışı olarak tutulmakta, ancak istenirse anlık olarak güncellenebilmektedir.
+
+🧱 Planlanan Geliştirmeler:
+- 🔗 Diri fay hattı verisinin entegrasyonu
+- 💾 Veri güncellemelerinin otomatik hale getirilmesi
