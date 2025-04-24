@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+import os
+import shutil
 
 url = "http://www.koeri.boun.edu.tr/scripts/lst0.asp"
 response = requests.get(url)
@@ -32,6 +34,11 @@ for line in lines:
         records.append([date, time, lat, lon, depth, magnitude, cleaned_location])
 
 df = pd.DataFrame(records, columns=["Date", "Time", "Latitude", "Longitude", "Depth(km)", "Magnitude", "Location"])
-df.to_csv("data/marmara_earthquakes.csv", index=False)
+file = "data/marmara_earthquakes.csv"
+if(os.path.exists(file)):
+    timestamp = pd.Timestamp.now().strftime("%Y%m%d_%H%M%S")
+    new_file = f"data/archive/marmara_earthquakes_{timestamp}.csv"
+    shutil.copyfile(file, new_file)
+df.to_csv(file, index=False)
 
 print(f"Saved {len(df)} list of earthquakes to 'data/marmara_earthquakes.csv'")
