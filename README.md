@@ -2,7 +2,7 @@
 
 ![Marmara'daki son depremler](last_earthquakes_istanbul.png)
 
-A lightweight tool to visualize recent earthquakes in Istanbul, using data from the Kandilli Observatory and Earthquake Research Institute (KOERI). 
+A lightweight tool to visualize recent earthquakes and fault lines in Istanbul on the map, using data from the Kandilli Observatory and Earthquake Research Institute (KOERI). 
 Designed to highlight seismic activity since April 23, 2025, with optional scraping from the live KOERI server.
 
 ⚙️ Features
@@ -11,6 +11,7 @@ Designed to highlight seismic activity since April 23, 2025, with optional scrap
 - 🌐 Live scraping from KOERI server (on demand)
 - 🗺️ Map-based visualization using Cartopy
 - 🔐 Uses local CSV to prevent unnecessary polling
+- 🗺️ Integrated MTA fault line maps of area of interests (digitization of existing high quality maps in geoJson format)
 
 🚀 **Getting Started**
 
@@ -32,7 +33,6 @@ Manage your environment with Micromamba – a fast and minimal environment manag
 
 🧱 **Next Steps**
 
-- 🔗 Integrate fault line maps (e.g., MTA / USGS datasets)
 - 💾 Improve CSV update mechanism
 
 
@@ -40,8 +40,7 @@ Manage your environment with Micromamba – a fast and minimal environment manag
 ## 🌐 Turkce aciklama
 # 🌍Istanbul'daki Son Depremler Haritası
 
-Kandilli Rasathanesi veri tabanından alınan ve 23 Nisan 2025 sonrası İstanbul’daki depremleri gösteren interaktif bir harita uygulamasıdır. Veri çevrimdışı olarak tutulmakta, ancak istenirse anlık olarak güncellenebilmektedir.
+Kandilli Rasathanesi veri tabanından alınan ve 23 Nisan 2025 sonrası İstanbul’daki depremleri ve varolan diri fay hatlarini gösteren interaktif bir harita uygulamasıdır. Veri çevrimdışı olarak tutulmakta, ancak istenirse anlık olarak güncellenebilmektedir.
 
 🧱 Planlanan Geliştirmeler:
-- 🔗 Diri fay hattı verisinin entegrasyonu
 - 💾 Veri güncellemelerinin otomatik hale getirilmesi
