@@ -49,7 +49,9 @@ faults = gpd.read_file("data/tekirdag_segmenti.geojson")
 geoJsonFiles = [
     "data/tekirdag_segmenti.geojson",
     "data/orta_marmara_cukuru.geojson",
-    "data/kumburgaz_segmenti.geojson"
+    "data/kumburgaz_segmenti.geojson",
+    "data/avcilar_segmenti.geojson",
+    "data/cinarcik_segmenti.geojson"
 ]
 
 faults = gpd.GeoDataFrame(pd.concat([gpd.read_file(f) for f in geoJsonFiles], ignore_index=True))
