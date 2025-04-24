@@ -55,7 +55,7 @@ geoJsonFiles = [
 ]
 
 faults = gpd.GeoDataFrame(pd.concat([gpd.read_file(f) for f in geoJsonFiles], ignore_index=True))
-faults.plot(ax=ax, color='red', linewidth=2, transform=ccrs.PlateCarree())
+faults.plot(ax=ax, color='red', linewidth=1.5, alpha=0.6, transform=ccrs.PlateCarree())
 
 plt.title(f"Earthquake Locations (ML > {min_magnitude})")
 cbar = plt.colorbar(scatter, ax=ax, orientation='horizontal', shrink=0.6, pad=0.06)
