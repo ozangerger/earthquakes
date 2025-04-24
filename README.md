@@ -36,7 +36,11 @@ Manage your environment with Micromamba – a fast and minimal environment manag
 
 - 💾 Improve CSV update mechanism
 
+🛠️ **How to generate geoJson from image based fault maps?**
 
+- QGIS is a nice tool to apply georeferencing based on coordinates given in the fault maps
+- You can then draw line segments and export these segments in geoJson format to be able to plot on your map
+- For further reference you can check the MTA website for fault maps and QGIS documentation for digitization of rasters
 
 ## 🌐 Turkce aciklama
 # 🌍Istanbul'daki Son Depremler Haritası
