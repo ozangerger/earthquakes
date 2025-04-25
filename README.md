@@ -35,6 +35,7 @@ Manage your environment with Micromamba – a fast and minimal environment manag
 🧱 **Next Steps**
 
 - 💾 Improve CSV update mechanism
+- 🗺️ Live-map display with data filtering capability
 
 🛠️ **How to generate geoJson from image based fault maps?**
 
@@ -49,3 +50,4 @@ Kandilli Rasathanesi veri tabanından alınan ve 23 Nisan 2025 sonrası İstanbu
 
 🧱 Planlanan Geliştirmeler:
 - 💾 Veri güncellemelerinin otomatik hale getirilmesi
+- 🗺️ Canli harita uzerinde kisisellestirilebilir filtreli goruntuleme ozelligi
